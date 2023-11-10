@@ -1,20 +1,24 @@
 import { AppBar, Button, Grid, Toolbar } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import { LOGIN_ROUTE } from "../../utils/constants";
+import { MainContext } from "../..";
+import { useAuthState } from "react-firebase-hooks/auth";
 const Header = () => {
-  const user = false;
+  const { auth } = useContext(MainContext);
+  const [user] = useAuthState(auth);
   return (
     <AppBar position="static">
+      
       <Toolbar variant="dense">
         <img src={Logo} style={{ maxWidth: 120 }} alt="" />
         <Grid container justifyContent={"flex-end"}>
           {user ? (
-            <Button color="inherit">Quit</Button>
+            <Button onClick={()=>auth.signOut()} color="inherit">Quit</Button>
           ) : (
             <NavLink to={LOGIN_ROUTE}>
-              <Button color="inherit">Login</Button>
+              <Button onClick={()=>auth.signIn()} color="inherit">Login</Button>
             </NavLink>
           )}
         </Grid>

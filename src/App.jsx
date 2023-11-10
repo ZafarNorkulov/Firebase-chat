@@ -5,11 +5,14 @@ import { privateRoutes, publicRoutes } from "./routes";
 import { CHAT_ROUTE, LOGIN_ROUTE } from "./utils/constants";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { MainContext } from ".";
+import Loader from "./components/loader";
 
 function App() {
   const { auth } = useContext(MainContext);
-  const [user] = useAuthState(auth);
-  console.log(user);
+  const [user, loading, error] = useAuthState(auth);
+  if (loading) {
+    return <Loader />;
+  }
   return user ? (
     <Switch key={"1"}>
       {privateRoutes?.map(({ path, Component }, index) => (
