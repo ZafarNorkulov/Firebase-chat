@@ -23,14 +23,7 @@ const Chat = () => {
     setValue("");
   };
   const messageRef = useRef();
-  useEffect(() => {
-    if (messageRef.current !== null && typeof window != "undefined") {
-      messageRef?.current?.scrollTo({
-        top: 1000000,
-        behavior: "smooth",
-      });
-    }
-  }, [messages.length]);
+
   if (loading) return <Loader />;
   return (
     <Grid

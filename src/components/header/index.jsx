@@ -10,15 +10,20 @@ const Header = () => {
   const [user] = useAuthState(auth);
   return (
     <AppBar position="static">
-      
       <Toolbar variant="dense">
         <img src={Logo} style={{ maxWidth: 120 }} alt="" />
         <Grid container justifyContent={"flex-end"}>
           {user ? (
-            <Button onClick={()=>auth.signOut()} color="inherit">Quit</Button>
+            <Button onClick={() => auth.signOut()} color="inherit">
+              Quit
+              test
+            </Button>
           ) : (
             <NavLink to={LOGIN_ROUTE}>
-              <Button onClick={()=>auth.signIn()} color="inherit">Login</Button>
+              <Button onClick={() => auth.signIn()} color="inherit">
+                Login
+              </Button>
+              test
             </NavLink>
           )}
         </Grid>
