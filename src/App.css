@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.chat-container {
+  position: relative;
+  width: 80%;
+  height: 70vh;
+  border: "1px solid gray";
+  overflow-x: "auto";
+  padding: 20;
+  background: url("./assets/background-chat.jpeg");
+  background-size: top -20px;
+}
