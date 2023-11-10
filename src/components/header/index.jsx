@@ -16,14 +16,12 @@ const Header = () => {
           {user ? (
             <Button onClick={() => auth.signOut()} color="inherit">
               Quit
-              test
             </Button>
           ) : (
             <NavLink to={LOGIN_ROUTE}>
               <Button onClick={() => auth.signIn()} color="inherit">
                 Login
               </Button>
-              test
             </NavLink>
           )}
         </Grid>
